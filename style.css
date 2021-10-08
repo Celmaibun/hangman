@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  position: relative;
+  font-size: 10px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d343e;
+}
+.win,
+.lose {
+  width: 50%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.win-text,
+.lose-text {
+  font-size: 5rem;
+  font-weight: 600;
+}
+.lose {
+  background-color: firebrick;
+}
+.lose-text {
+  color: #fff;
+}
+.wrapper {
+  width: 50%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid white;
+}
+.title {
+  width: 100%;
+}
+.title-name {
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+}
+.title-smallname {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+.interface {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  color: white;
+}
+.word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.word-list {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  font-size: 3rem;
+}
+.guess {
+  margin-left: 1rem;
+}
+.buttons {
+  width: 50%;
+  height: 15%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  align-self: center;
+  text-align: center;
+}
+.button-alphabet {
+  font-size: 1.5rem;
+  max-height: 50px;
+  border: none;
+  margin: 1px;
+}
+.button-alphabet:hover {
+  color: crimson;
+}
