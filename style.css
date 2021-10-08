@@ -71,6 +71,12 @@ body {
   font-size: 1.5rem;
   color: white;
 }
+.interface-lives {
+  display: flex;
+}
+.lives-text {
+  margin-left: 0.5rem;
+}
 .word {
   display: flex;
   justify-content: center;
@@ -86,13 +92,14 @@ body {
   margin-left: 1rem;
 }
 .buttons {
-  width: 50%;
+  width: 80%;
   height: 15%;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   align-self: center;
   text-align: center;
 }
+
 .button-alphabet {
   font-size: 1.5rem;
   max-height: 50px;
