@@ -8,6 +8,8 @@ const scoreDiv = document.querySelector('.score-text');
 const endScore = document.querySelector('.lose-score');
 const endWord = document.querySelector('.lose-word');
 const restartBtn = document.querySelector('.lose-button');
+const correct = new Audio('correct.mp3');
+const wrong = new Audio('wrong.mp3');
 
 const alphabet = [
   'a',
@@ -151,6 +153,7 @@ const checkWinner = function (word) {
   const winnerArray = word;
   if (lives === 0) {
     loseWrapper.classList.remove('hidden');
+    wrong.play();
     lives = 10;
     endScore.textContent = `score: ${score}`;
     score = 0;
@@ -160,6 +163,7 @@ const checkWinner = function (word) {
   if (array === winnerArray) {
     // winWrapper.classList.remove('hidden');
     lives = 10;
+    correct.play();
     restartGame();
   }
 };
