@@ -17,8 +17,8 @@ body {
 }
 /*LOSE*/
 .lose {
-  width: 50%;
-  height: 70%;
+  width: calc(50% + 1px);
+  height: calc(70% + 1px);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,7 +26,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem 5rem 0.5rem 5rem;
   z-index: 999;
 }
 .lose-text {
@@ -64,11 +63,12 @@ body {
 .wrapper {
   width: 50%;
   height: 70%;
-  background-color: #476072;
+  /* background-color: #476072; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-radius: 0.5rem 5rem 0.5rem 5rem;
+  /* border-radius: 0.5rem 5rem 0.5rem 5rem; */
+  border: 1px solid #fff;
 }
 /*TITLE */
 .title {
@@ -78,7 +78,7 @@ body {
   color: #fff;
   font-size: 3rem;
   text-align: center;
-  text-shadow: -0.5px 0px 4px #fff;
+  text-shadow: -0.5px 0px 3px #fff;
   font-weight: 700;
 }
 .title-smallname {
@@ -97,9 +97,13 @@ body {
 }
 .interface-lives {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .interface-score {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .lives-text {
   margin-left: 0.5rem;
