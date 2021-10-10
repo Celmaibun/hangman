@@ -13,9 +13,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3d343e;
+  background-color: #334257;
 }
-.win,
+/*LOSE*/
 .lose {
   width: 50%;
   height: 70%;
@@ -23,33 +23,54 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: aquamarine;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0.5rem 5rem 0.5rem 5rem;
+  z-index: 999;
 }
-.hidden {
-  display: none;
-}
-.win-text,
 .lose-text {
   font-size: 5rem;
   font-weight: 600;
 }
 .lose {
-  background-color: firebrick;
+  background-color: #f05945;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.lose-button {
+  border: none;
+  width: 10rem;
+  height: 5rem;
+}
+.lose-button:hover {
+  background-color: gray;
+  color: #fff;
 }
 .lose-text {
   color: #fff;
 }
+.lose-score,
+.lose-word {
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.hidden {
+  display: none;
+}
+/*WRAPPER*/
 .wrapper {
   width: 50%;
   height: 70%;
+  background-color: #476072;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid white;
+  border-radius: 0.5rem 5rem 0.5rem 5rem;
 }
+/*TITLE */
 .title {
   width: 100%;
 }
@@ -57,26 +78,40 @@ body {
   color: #fff;
   font-size: 3rem;
   text-align: center;
+  text-shadow: -0.5px 0px 4px #fff;
+  font-weight: 700;
 }
 .title-smallname {
   color: #fff;
   font-size: 1rem;
   text-align: center;
 }
+/*INTERFACE*/
 .interface {
   width: 100%;
   height: 15%;
   display: flex;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  color: white;
+  color: #fff;
 }
 .interface-lives {
   display: flex;
 }
+.interface-score {
+  display: flex;
+}
 .lives-text {
   margin-left: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
 }
+.score-text {
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+/*WORD*/
 .word {
   display: flex;
   justify-content: center;
@@ -91,6 +126,7 @@ body {
 .guess {
   margin-left: 1rem;
 }
+/*BUTTONS*/
 .buttons {
   width: 80%;
   height: 15%;
@@ -104,7 +140,9 @@ body {
   font-size: 1.5rem;
   max-height: 50px;
   border: none;
+  background-color: #f7f3e9;
   margin: 1px;
+  color: #000;
 }
 .button-alphabet:hover {
   color: crimson;

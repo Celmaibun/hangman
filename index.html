@@ -14,27 +14,26 @@
     <title>Hangman</title>
   </head>
   <body>
-    <div class="win hidden">
-      <p class="win-text">YOU WON!</p>
-    </div>
     <div class="lose hidden">
       <p class="lose-text">YOU LOSE!</p>
+      <p class="lose-word">the word was:</p>
+      <p class="lose-score">score: 0</p>
+      <button class="lose-button">PLAY AGAIN!</button>
     </div>
     <div class="wrapper">
-      //
       <div class="title">
         <h1 class="title-name">HANGMAN</h1>
         <p class="title-smallname">Quick hangman game</p>
       </div>
-      //
       <div class="interface">
         <div class="interface-lives">
           <i class="fas fa-heart"></i>
-          <p class="lives-text">10 lives</p>
+          <p class="lives-text">lives: 10</p>
         </div>
-        <!-- <div class="interface-score">
-          <i class="fas fa-star"> Score: 0</i>
-        </div> -->
+        <div class="interface-score">
+          <i class="fas fa-star"></i>
+          <p class="score-text">score: 0</p>
+        </div>
       </div>
 
       <div class="word">
@@ -42,7 +41,7 @@
       </div>
 
       <div class="buttons">
-        <button class="button-alphabet" value="a">A</button
+        <!-- <button class="button-alphabet" value="a">A</button
         ><button class="button-alphabet" value="b">B</button
         ><button class="button-alphabet" value="c">C</button
         ><button class="button-alphabet" value="d">D</button
@@ -67,7 +66,7 @@
         ><button class="button-alphabet" value="w">W</button
         ><button class="button-alphabet" value="x">X</button
         ><button class="button-alphabet" value="y">Y</button
-        ><button class="button-alphabet" value="z">Z</button>
+        ><button class="button-alphabet" value="z">Z</button> -->
       </div>
     </div>
     <script src="main.js"></script>

@@ -1,8 +1,13 @@
+'use strict';
 const buttonsWrapper = document.querySelector('.buttons');
 const wordList = document.querySelector('.word-list');
 const winWrapper = document.querySelector('.win');
 const loseWrapper = document.querySelector('.lose');
 const livesDiv = document.querySelector('.lives-text');
+const scoreDiv = document.querySelector('.score-text');
+const endScore = document.querySelector('.lose-score');
+const endWord = document.querySelector('.lose-word');
+const restartBtn = document.querySelector('.lose-button');
 
 const alphabet = [
   'a',
@@ -92,13 +97,31 @@ const words = [
   'clarify',
 ];
 //Variables
-const generatedNumber = Math.floor(Math.random() * words.length);
+let generatedNumber = Math.floor(Math.random() * words.length);
 let wordArray = [];
 let lives = 10;
+let score = 0;
 
 //Remove button when click
 const removeButton = function (value) {
   buttonsWrapper.removeChild(value);
+};
+//Display all buttons
+const displayButtons = function () {
+  alphabet.forEach(function (letter) {
+    const button = document.createElement('button');
+    button.classList.add('button-alphabet');
+    button.textContent = letter.toUpperCase();
+    button.value = letter;
+    buttonsWrapper.append(button);
+  });
+};
+displayButtons();
+//Remove all btns
+const removeAllButtons = function () {
+  while (buttonsWrapper.firstChild) {
+    buttonsWrapper.removeChild(buttonsWrapper.firstChild);
+  }
 };
 //Remove all li from ul
 const removeLi = function () {
@@ -114,7 +137,7 @@ const pushSymbolToArray = function () {
 };
 //More index finder
 function indexOfAll(array, searchItem) {
-  var i = array.indexOf(searchItem),
+  let i = array.indexOf(searchItem),
     indexes = [];
   while (i !== -1) {
     indexes.push(i);
@@ -128,9 +151,16 @@ const checkWinner = function (word) {
   const winnerArray = word;
   if (lives === 0) {
     loseWrapper.classList.remove('hidden');
+    lives = 10;
+    endScore.textContent = `score: ${score}`;
+    score = 0;
+    scoreDiv.textContent = `score: ${score}`;
+    endWord.textContent = `the word was: ${word}`;
   }
   if (array === winnerArray) {
-    winWrapper.classList.remove('hidden');
+    // winWrapper.classList.remove('hidden');
+    lives = 10;
+    restartGame();
   }
 };
 //Display letter, create new li
@@ -156,16 +186,35 @@ const letterClick = function () {
     removeLi();
     displayLetters(word);
     removeButton(this);
+    score++;
+    scoreDiv.textContent = `score: ${score}`;
   }
   //If there is no key letter in word
   else {
     removeButton(this);
     lives--;
   }
-  livesDiv.textContent = ` ${lives} lives`;
   checkWinner(word);
+  livesDiv.textContent = `lives: ${lives}`;
 };
 
+const restartGame = function () {
+  loseWrapper.classList.add('hidden');
+  wordArray = [];
+  livesDiv.textContent = `lives: ${lives}`;
+  generatedNumber = Math.floor(Math.random() * words.length);
+  removeAllButtons();
+  displayButtons();
+  removeLi();
+  pushSymbolToArray();
+  displayLetters(words[generatedNumber]);
+  document.querySelectorAll('.button-alphabet').forEach(item => {
+    item.addEventListener('click', letterClick);
+    item.addEventListener('.touch', letterClick);
+  });
+};
+
+restartBtn.addEventListener('click', restartGame);
 document.querySelectorAll('.button-alphabet').forEach(item => {
   item.addEventListener('click', letterClick);
   item.addEventListener('.touch', letterClick);
